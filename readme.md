@@ -18,6 +18,8 @@ import { nameSynonyms } from "meilisearch-name-synonyms";
 
 const client = new MeiliSearch({ host: "http://localhost:7700" });
 
+const userIndex = client.index('users')
+
 await userIndex.updateSynonyms(nameSynonyms);
 
 /// or if you need to add in a few more
