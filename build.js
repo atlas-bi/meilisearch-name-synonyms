@@ -14,7 +14,9 @@ const loadSource = async () => {
     .forEach((line) => {
       const words = line.split(",");
       words.forEach((word) => {
-        out[word] = [...words.filter((x) => x != word)];
+        out[word]
+          ? out[word].push(...words.filter((x) => x != word))
+          : (out[word] = [...words.filter((x) => x != word)]);
       });
     });
 
