@@ -1,4 +1,4 @@
-export const nameSynonyms = {
+module.exports.nameSynonyms = {
   aaron: ["erin", "ronnie", "ron"],
   erin: ["aron", "ronnie", "ron"],
   ronnie: ["veronica", "vonnie", "ron", "ronna", "ronie", "frony", "franky"],

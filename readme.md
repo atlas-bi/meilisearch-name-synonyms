@@ -5,7 +5,7 @@ This is an importable list of nicknames to be used as a [meilisearch](https://do
 ## Installing
 
 ```bash
-npm i meilisearch-names-synonyms
+npm i meilisearch-name-synonyms
 ```
 
 ## Usage
@@ -14,7 +14,7 @@ Assuming you have a search index for people:
 
 ```js
 import { MeiliSearch } from "meilisearch";
-import { nameSynonyms } from "meilisearch-names-synonyms";
+import { nameSynonyms } from "meilisearch-name-synonyms";
 
 const client = new MeiliSearch({ host: "http://localhost:7700" });
 

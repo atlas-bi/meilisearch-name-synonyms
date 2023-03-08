@@ -1,3 +1,3 @@
-import { nameSynonyms } from "./index.js";
+const { nameSynonyms } = require("./index");
 
 console.log(nameSynonyms);

@@ -4,6 +4,7 @@
   "description": "List of common names and nicknames to be used in a meilisearch username index as a synonym list",
   "main": "index.js",
   "scripts": {
+    "build": "node build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write .",
     "pre-commit": "lint-staged",
@@ -50,6 +51,5 @@
     "**/*.{ts,css,less,scss,js,json,md,yaml,html}": [
       "npm run format"
     ]
-  },
-  "type": "module"
+  }
 }

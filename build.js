@@ -1,4 +1,4 @@
-import fs from "fs";
+const fs = require("fs");
 
 const loadSource = async () => {
   const source = await fetch(
@@ -18,7 +18,7 @@ const loadSource = async () => {
       });
     });
 
-  const content = `export const nameSynonyms = ${JSON.stringify(out)}`;
+  const content = `module.exports.nameSynonyms = ${JSON.stringify(out)}`;
 
   fs.writeFile("index.js", content, (err) => {
     if (err) {
