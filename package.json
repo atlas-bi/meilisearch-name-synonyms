@@ -1,0 +1,55 @@
+{
+  "name": "meilisearch-name-synonyms",
+  "version": "0.0.1",
+  "description": "List of common names and nicknames to be used in a meilisearch username index as a synonym list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
+    "pre-commit": "lint-staged",
+    "commit": "git add . && npm run pre-commit && git add . && cz --no-verify",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint ."
+  },
+  "author": {
+    "name": "Christopher Pickering",
+    "url": "https://going.bg"
+  },
+  "license": "GPL-3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atlas-bi/meilisearch-name-synonyms.git"
+  },
+  "keywords": [
+    "meilisearch",
+    "synonyms",
+    "nicknames"
+  ],
+  "bugs": {
+    "url": "https://github.com/atlas-bi/meilisearch-name-synonyms/issues"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "6.0.2",
+    "@semantic-release/commit-analyzer": "9.0.2",
+    "@semantic-release/exec": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "8.0.7",
+    "@semantic-release/npm": "9.0.1",
+    "@semantic-release/release-notes-generator": "10.0.3",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.35.0",
+    "lint-staged": "13.1.0",
+    "prettier": "^2.8.1",
+    "semantic-release": "19.0.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "**/*.{ts,css,less,scss,js,json,md,yaml,html}": [
+      "npm run format"
+    ]
+  },
+  "type": "module"
+}
