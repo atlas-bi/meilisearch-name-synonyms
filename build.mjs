@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 const loadSource = async () => {
   const source = await fetch(
@@ -14,13 +14,16 @@ const loadSource = async () => {
     .forEach((line) => {
       const words = line.split(",");
       words.forEach((word) => {
-        out[word] = [...words.filter((x) => x != word)];
+        out[word]
+          ? out[word].push(...words.filter((x) => x != word))
+          : (out[word] = [...words.filter((x) => x != word)]);
       });
     });
 
-  const content = `module.exports.nameSynonyms = ${JSON.stringify(out)}`;
-
-  fs.writeFile("index.js", content, (err) => {
+  const content = `
+export const nameSynonyms = ${JSON.stringify(out)}`;
+  fs.mkdirSync("src", { recursive: true });
+  fs.writeFile("src/index.ts", content, (err) => {
     if (err) {
       console.error(err);
     }

@@ -2,7 +2,7 @@ name: Test
 
 on:
   push:
-  pull-request:
+  pull_request:
 
 jobs:
   test:
@@ -26,7 +26,11 @@ jobs:
           useLockFile: false
 
       - name: build
-        run: npm run build
+        run: |
+          npm run build
+          npm run format
+          npm run lint
+          npm run typecheck
 
       - name: test
         run: node test.js

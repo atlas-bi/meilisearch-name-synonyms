@@ -2,15 +2,21 @@
   "name": "meilisearch-name-synonyms",
   "version": "1.0.1",
   "description": "List of common names and nicknames to be used in a meilisearch username index as a synonym list",
-  "main": "index.js",
+  "main": "build/index.js",
+  "module": "build/index.es.mjs",
+  "jsnext:main": "build/index.es.mjs",
   "scripts": {
-    "build": "node build.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.mjs; rollup -c",
+    "test": "node test.js; node test.mjs",
     "format": "prettier --write .",
     "pre-commit": "lint-staged",
     "commit": "git add . && npm run pre-commit && git add . && cz --no-verify",
-    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint ."
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    "typecheck": "tsc -d --noEmit"
   },
+  "files": [
+    "build"
+  ],
   "author": {
     "name": "Christopher Pickering",
     "url": "https://going.bg"
@@ -29,6 +35,9 @@
     "url": "https://github.com/atlas-bi/meilisearch-name-synonyms/issues"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
     "@semantic-release/changelog": "6.0.2",
     "@semantic-release/commit-analyzer": "9.0.2",
     "@semantic-release/exec": "6.0.3",
@@ -36,11 +45,18 @@
     "@semantic-release/github": "8.0.7",
     "@semantic-release/npm": "9.0.1",
     "@semantic-release/release-notes-generator": "10.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "lint-staged": "13.1.0",
-    "prettier": "^2.8.1",
-    "semantic-release": "19.0.5"
+    "prettier": "^2.8.4",
+    "rollup": "^3.19.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "semantic-release": "19.0.5",
+    "typescript": "^4.9.5"
   },
   "config": {
     "commitizen": {
