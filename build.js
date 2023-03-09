@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 const loadSource = async () => {
   const source = await fetch(
@@ -20,9 +20,10 @@ const loadSource = async () => {
       });
     });
 
-  const content = `module.exports.nameSynonyms = ${JSON.stringify(out)}`;
-
-  fs.writeFile("index.js", content, (err) => {
+  const content = `
+module.exports.nameSynonyms = ${JSON.stringify(out)}`;
+  fs.mkdirSync("src", { recursive: true });
+  fs.writeFile("src/index.ts", content, (err) => {
     if (err) {
       console.error(err);
     }
