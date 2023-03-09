@@ -21,7 +21,7 @@ const loadSource = async () => {
     });
 
   const content = `
-module.exports.nameSynonyms = ${JSON.stringify(out)}`;
+export const nameSynonyms = ${JSON.stringify(out)}`;
   fs.mkdirSync("src", { recursive: true });
   fs.writeFile("src/index.ts", content, (err) => {
     if (err) {

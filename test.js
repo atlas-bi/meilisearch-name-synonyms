@@ -1,3 +1,3 @@
-const { nameSynonyms } = require("./index");
+const { nameSynonyms } = require("./build/index.js");
 
-console.log(nameSynonyms);
+console.assert(Object.keys(nameSynonyms).length);
