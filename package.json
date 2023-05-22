@@ -1,6 +1,6 @@
 {
   "name": "meilisearch-name-synonyms",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "List of common names and nicknames to be used in a meilisearch username index as a synonym list",
   "main": "build/index.js",
   "module": "build/index.es.mjs",
@@ -35,7 +35,7 @@
     "url": "https://github.com/atlas-bi/meilisearch-name-synonyms/issues"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
     "@semantic-release/changelog": "6.0.3",
