@@ -1,6 +1,6 @@
 {
   "name": "meilisearch-name-synonyms",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "List of common names and nicknames to be used in a meilisearch username index as a synonym list",
   "main": "build/index.js",
   "module": "build/index.es.mjs",
@@ -42,7 +42,7 @@
     "@semantic-release/commit-analyzer": "10.0.1",
     "@semantic-release/exec": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "9.0.3",
+    "@semantic-release/github": "9.0.4",
     "@semantic-release/npm": "10.0.4",
     "@semantic-release/release-notes-generator": "11.0.4",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
