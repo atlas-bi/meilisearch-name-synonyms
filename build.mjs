@@ -2,7 +2,7 @@ import fs from "fs";
 
 const loadSource = async () => {
   const source = await fetch(
-    "https://raw.githubusercontent.com/carltonnorthern/nicknames/master/names.csv"
+    "https://raw.githubusercontent.com/carltonnorthern/nicknames/master/names.csv",
   );
   const text = await source.text();
 
