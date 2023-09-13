@@ -1,6 +1,6 @@
 {
   "name": "meilisearch-name-synonyms",
-  "version": "1.1.23",
+  "version": "1.1.24",
   "description": "List of common names and nicknames to be used in a meilisearch username index as a synonym list",
   "main": "build/index.js",
   "module": "build/index.es.mjs",
@@ -52,7 +52,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "lint-staged": "14.0.1",
-    "prettier": "^2.8.4",
+    "prettier": "^3.0.0",
     "rollup": "^3.19.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "semantic-release": "21.1.1",
