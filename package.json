@@ -8,10 +8,10 @@
   "scripts": {
     "build": "node build.mjs; rollup -c",
     "test": "node test.js; node test.mjs",
-    "format": "prettier --write .",
+    "format": "biome format --write .",
     "pre-commit": "lint-staged",
     "commit": "git add . && npm run pre-commit && git add . && cz --no-verify",
-    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    "lint": "biome check .",
     "typecheck": "tsc -d --noEmit"
   },
   "files": [
@@ -45,18 +45,13 @@
     "@semantic-release/github": "^12.0.0",
     "@semantic-release/npm": "13.1.5",
     "@semantic-release/release-notes-generator": "14.1.1",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^10.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
     "lint-staged": "17.0.7",
-    "prettier": "^3.0.0",
     "rollup": "^4.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "semantic-release": "25.0.5",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@biomejs/biome": "^2.4.16"
   },
   "config": {
     "commitizen": {
@@ -64,8 +59,6 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,css,less,scss,js,json,md,yaml,html}": [
-      "npm run format"
-    ]
+    "*": "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
   }
 }
