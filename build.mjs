@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 
 const loadSource = async () => {
   const source = await fetch(
@@ -6,7 +6,7 @@ const loadSource = async () => {
   );
   const text = await source.text();
 
-  let out = {};
+  const out = {};
 
   text
     .split(/\r?\n/)
@@ -14,20 +14,24 @@ const loadSource = async () => {
     .forEach((line) => {
       const words = line.split(",");
       words.forEach((word) => {
-        out[word]
-          ? out[word].push(...words.filter((x) => x != word))
-          : (out[word] = [...words.filter((x) => x != word)]);
+        const synonyms = words.filter((x) => x !== word);
+        if (out[word]) {
+          out[word].push(...synonyms);
+        } else {
+          out[word] = [...synonyms];
+        }
       });
     });
 
-  const content = `
-export const nameSynonyms = ${JSON.stringify(out)}`;
-  fs.mkdirSync("src", { recursive: true });
-  fs.writeFile("src/index.ts", content, (err) => {
-    if (err) {
-      console.error(err);
-    }
-  });
+  const json = JSON.stringify(out);
+
+  fs.mkdirSync("build", { recursive: true });
+  fs.writeFileSync("build/index.js", `exports.nameSynonyms = ${json};\n`);
+  fs.writeFileSync("build/index.es.mjs", `export const nameSynonyms = ${json};\n`);
+  fs.writeFileSync(
+    "build/index.d.ts",
+    "export declare const nameSynonyms: Record<string, string[]>;\n",
+  );
 };
 
 loadSource();
