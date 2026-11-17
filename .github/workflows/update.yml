@@ -2,7 +2,7 @@ name: ⏫ Sync Updates
 on:
   push:
     branches:
-    - dev
+      - dev
 jobs:
   master:
     runs-on: ubuntu-latest
@@ -11,19 +11,19 @@ jobs:
       cancel-in-progress: true
     if: github.ref_name == 'dev'
     steps:
-    - name: 💾 Checkout
-      uses: actions/checkout@v6
-      with:
-        ref: master
+      - name: 💾 Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: master
 
-    - name: 🛑 Reset promotion branch
-      run: |
-        git fetch origin ${{github.ref_name}}:${{github.ref_name}}
-        git reset --hard ${{github.ref_name}}
+      - name: 🛑 Reset promotion branch
+        run: |
+          git fetch origin ${{github.ref_name}}:${{github.ref_name}}
+          git reset --hard ${{github.ref_name}}
 
-    - name: 🆕 Create Pull Request
-      uses: peter-evans/create-pull-request@b993918c8536b6d44706130734d5456879762b27
-      with:
-        labels: automated pr
-        branch: ${{github.ref_name}}
-        title: chore(sync) Syncing changes from ${{github.ref_name}} to master
+      - name: 🆕 Create Pull Request
+        uses: peter-evans/create-pull-request@b993918c8536b6d44706130734d5456879762b27
+        with:
+          labels: automated pr
+          branch: ${{github.ref_name}}
+          title: chore(sync) Syncing changes from ${{github.ref_name}} to master
