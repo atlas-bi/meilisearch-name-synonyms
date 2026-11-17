@@ -1,5 +1,7 @@
 {
-  "baseBranchPatterns": ["dev"],
+  "baseBranchPatterns": [
+    "dev"
+  ],
   "extends": [
     "config:recommended",
     "group:allNonMajor",
@@ -24,12 +26,16 @@
       "automerge": true
     },
     {
-      "extends": ["packages:linters"],
+      "extends": [
+        "packages:linters"
+      ],
       "groupName": "linters",
       "automerge": true
     },
     {
-      "extends": ["packages:test"],
+      "extends": [
+        "packages:test"
+      ],
       "groupName": "test packages",
       "automerge": true
     }
