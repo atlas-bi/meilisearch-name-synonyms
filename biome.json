@@ -1,7 +1,7 @@
 {
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**/*", "!**/node_modules", "!**/build"]
+    "includes": ["**/*", "!**/node_modules", "!**/build", "!renovate.json"]
   },
   "formatter": {
     "enabled": true,
